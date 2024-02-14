@@ -8,7 +8,7 @@ spec:
   type: service
   lifecycle: production
   owner: guests
-  providesApis: [datalake-boat-api]
+  providesApis: [datalake-boat-api, datalake-boat-ref-api]
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
 apiVersion: backstage.io/v1alpha1
@@ -33,3 +33,15 @@ spec:
           responses:
             "200":
               description: All gone!
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: datalake-boat-ref-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: guests
+  definition:
+    $openapi: http://localhost:8080/apis/registry/v2/groups/my-group/artifacts/datalake-ref

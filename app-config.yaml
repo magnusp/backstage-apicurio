@@ -30,6 +30,10 @@ backend:
   database:
     client: better-sqlite3
     connection: ":memory:"
+  reading:
+    allow:
+      - host: gist.githubusercontent.com
+      - host: localhost:8080
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 proxy:
